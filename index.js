@@ -6,7 +6,8 @@ function randomWebTitle() {
     const titles = [
         "Elaina Da Catto",
         "Nyan~~~",
-        "Meow~"
+        "Meow~",
+        "≽^- ˕ -^≼"
     ];
 
     const randomIndex = Math.floor(Math.random() * titles.length);
