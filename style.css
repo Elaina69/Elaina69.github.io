@@ -21,6 +21,37 @@ body {
     line-height: 1.6;
 }
 
+.portfolio-container {
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    background-image: url('/assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 80px;
+    transition: background-image 0.2s;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.3) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -60,36 +91,6 @@ body {
     background: var(--pink-primary);
     color: #1a1a1a;
     border-color: var(--pink-primary);
-}
-
-.portfolio-container {
-    min-height: 100vh;
-    display: flex;
-    position: relative;
-    background-image: url('/assets/images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    padding-top: 80px;
-    transition: background-image 0.2s;
-}
-
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.85) 40%,
-        rgba(0, 0, 0, 0.3) 70%,
-        transparent 100%
-    );
-    pointer-events: none;
-    z-index: 1;
 }
 
 .content-left {
@@ -168,13 +169,6 @@ body {
     color: var(--text-secondary);
     margin-bottom: 30px;
     line-height: 1.8;
-}
-
-.contact-methods h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-    font-weight: 600;
 }
 
 .social-icon img {
@@ -401,8 +395,7 @@ body {
         font-size: 2rem;
     }
 
-    .skills-section h2,
-    .contact-methods h2 {
+    .skills-section h2 {
         font-size: 1.5rem;
     }
 
