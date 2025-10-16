@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Elaina69</title>
-  </head>
-  <body>
-  <p>...</p>
-  </body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+        <div class="nav-content">
+            <button class="nav-btn active" data-section="overview">Overview</button>
+            <button class="nav-btn" data-section="mystuff">My Projects</button>
+            <button class="nav-btn" data-section="contact">Contact Me</button>
+        </div>
+        </nav>
+
+        <div class="portfolio-container">
+        <div class="content-left" id="overview-section">
+            <div class="profile-section">
+                <h1 class="name">Elaina Da Catto</h1>
+                <p class="title">Web & AI Students</p>
+                <p class="bio">I'm just a cat. Nyan ~~~</p>
+            </div>
+
+            <div class="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag" id="purr">Purr</span>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="content-left" id="mystuff-section" style="display: none;">
+            <h1 class="section-title">My Projects</h1>
+            <div class="projects-list">
+                <!-- Project items will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="content-left" id="contact-section" style="display: none;">
+            <h1 class="section-title">Contact Me</h1>
+            <p class="contact-intro">Feel free to reach out through any of these channels.</p>
+
+            <div class="social-links">
+                <a href="https://x.com/ElainaDaCatto" target="_blank" class="social-icon" aria-label="Twitter">𝕏</a>
+                <a href="https://github.com/Elaina69" target="_blank" class="social-icon" aria-label="GitHub">
+                    <!-- GitHub SVG -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.65.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/>
+                    </svg>
+                </a>
+                <a href="https://discord.com/users/689073511142391835" target="_blank" class="social-icon" aria-label="Discord">
+                    <!-- Discord SVG -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path fill="currentColor" d="M20.317 4.369A19.791 19.791 0 0 0 16.885 3.3a.05.05 0 0 0-.052.025c-.724 1.323-1.537 3.045-2.105 4.425a18.432 18.432 0 0 0-5.456 0c-.568-1.38-1.381-3.102-2.105-4.425a.05.05 0 0 0-.052-.025A19.791 19.791 0 0 0 3.683 4.369a.047.047 0 0 0-.021.018C.533 9.063-.32 13.627.099 18.138a.05.05 0 0 0 .019.035c2.104 1.547 4.136 2.49 6.13 3.13a.05.05 0 0 0 .056-.019c.472-.647.893-1.326 1.262-2.03a.05.05 0 0 0-.028-.07c-.662-.25-1.294-.547-1.91-.88a.05.05 0 0 1-.007-.083c.129-.097.257-.197.381-.298a.05.05 0 0 1 .051-.007c3.973 1.813 8.263 1.813 12.206 0a.05.05 0 0 1 .052.007c.124.101.252.201.381.298a.05.05 0 0 1-.007.083c-.616.333-1.248.63-1.91.88a.05.05 0 0 0-.028.07c.37.704.79 1.383 1.262 2.03a.05.05 0 0 0 .056.019c1.994-.64 4.026-1.583 6.13-3.13a.05.05 0 0 0 .019-.035c.5-5.177-.838-9.708-3.563-13.751a.047.047 0 0 0-.021-.018zM8.02 15.331c-1.183 0-2.155-1.085-2.155-2.419 0-1.333.951-2.418 2.155-2.418 1.217 0 2.168 1.097 2.155 2.418 0 1.334-.951 2.419-2.155 2.419zm7.96 0c-1.183 0-2.155-1.085-2.155-2.419 0-1.333.951-2.418 2.155-2.418 1.217 0 2.168 1.097 2.155 2.418 0 1.334-.951 2.419-2.155 2.419z"/>
+                    </svg>
+                </a>
+                <a href="https://ko-fi.com/elainadacatto" target="_blank" class="social-icon" aria-label="Ko-fi">
+                    <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="background-overlay"></div>
+        </div>
+
+        <script type="module" src="index.js"></script>
+    </body>
 </html>
