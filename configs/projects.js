@@ -9,7 +9,7 @@ export default [
     {
         name: 'Yes Steve Models Repo',
         description: 'YSM models I collected from various sources, free to use.',
-        tags: ["YSM", "3D Models", "Yes Steve Models"],
+        tags: ["YSM", "3D Models", "Community Project"],
         background: './assets/images/ysm.jpg',
         link: 'https://github.com/Elaina69/Yes-Steve-Model-Repo'
     }
