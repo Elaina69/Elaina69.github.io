@@ -15,6 +15,13 @@ function randomWebTitle() {
     document.title = title;
 }
 
+function preloadProjectImages() {
+    projects.forEach(project => {
+        const img = new Image();
+        img.src = project.background;
+    });
+}
+
 function updateBackground(imageUrl) {
     const portfolioContainer = document.querySelector('.portfolio-container');
     portfolioContainer.style.backgroundImage = imageUrl;
@@ -82,13 +89,6 @@ function addProjectItems() {
 function setupProjectHovers() {
     const projectItems = document.querySelectorAll('.project-item');
 
-    // Preload images
-    projectItems.forEach(item => {
-        const bgImage = item.getAttribute('data-bg');
-        const img = new Image();
-        img.src = bgImage;
-    });
-
     // Change background on hover
     projectItems.forEach(item => {
         const bgImage = item.getAttribute('data-bg');
@@ -122,7 +122,7 @@ function purr() {
 
 document.addEventListener('DOMContentLoaded', () => {
     randomWebTitle();
-    
+
     const skillTags = document.querySelectorAll('.skill-tag');
 
     skillTags.forEach((tag, index) => {
@@ -140,5 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     purr()
     addProjectItems()
+    preloadProjectImages()
     setupProjectHovers()
 });
