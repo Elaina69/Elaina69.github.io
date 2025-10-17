@@ -12,5 +12,12 @@ export default [
         tags: ["YSM", "3D Models", "Community Project"],
         background: './assets/images/ysm.jpg',
         link: 'https://github.com/Elaina69/Yes-Steve-Model-Repo'
-    }
+    },
+    {
+        name: 'Auto ban bot',
+        description: 'Lightweight bot for Discord, auto ban users whenever they send message in specific channels',
+        tags: ["Node.js", "Discord.js"],
+        background: 'none',
+        link: 'https://github.com/Elaina69/Auto-Ban'
+    },
 ];
