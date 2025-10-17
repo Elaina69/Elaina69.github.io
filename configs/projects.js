@@ -2,7 +2,7 @@ export default [
     {
         name: 'Elaina theme',
         description: 'One of the best theme for Pengu Loader - League of Legends.',
-        tags: ['HTML', 'CSS', 'JavaScript', "Node.js", "ExpressJS", "MySQL"],
+        tags: ['JavaScript', "TypeScript", 'CSS', "Node.js", "ExpressJS", "MySQL"],
         background: './assets/images/elaina-theme.png',
         link: 'https://github.com/Elaina69/Elaina-V4'
     },
