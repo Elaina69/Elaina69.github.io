@@ -1,0 +1,58 @@
+.profile-section {
+    animation: fadeIn 1.2s ease-out;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text-primary), var(--pink-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideDown 0.3s ease-out;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: var(--pink-primary);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.bio {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.skills-section h2, .contact-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: rgba(255, 179, 217, 0.1);
+    border: 1px solid var(--pink-primary);
+    color: var(--pink-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 179, 217, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 179, 217, 0.3);
+}

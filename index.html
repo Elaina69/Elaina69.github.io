@@ -5,7 +5,13 @@
         <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Elaina Da Catto</title>
-        <link rel="stylesheet" href="style.css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="assets/styles/overview.css">
+        <link rel="stylesheet" href="assets/styles/myProjects.css">
+        <link rel="stylesheet" href="assets/styles/contactMe.css">
+        <link rel="stylesheet" href="assets/styles/slider.css">
     </head>
     <body>
         <nav class="navbar">
@@ -74,6 +80,18 @@
             </div>
 
             <div class="background-overlay"></div>
+        </div>
+
+        <!-- Project Modal -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-readme" id="modalReadme">
+                    <div class="loading">Loading README...</div>
+                </div>
+                <a href="#" class="github-link" id="githubLink" target="_blank">Go to project's github page</a>
+            </div>
         </div>
 
         <!-- JavaScript -->
