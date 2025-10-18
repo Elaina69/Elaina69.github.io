@@ -41,7 +41,7 @@ class Modal {
             modalOverlay.style.backgroundImage = '';
         }
 
-        modalReadme.innerHTML = '<div class="loading">Loading README...</div>';
+        modalReadme.innerHTML = `<img src="assets/images/loading.gif" alt="Loading" class="loading-gif"/><div class="loading">Loading README...</div>`;
         githubLink.href = project.link;
 
         modal.classList.add('active');

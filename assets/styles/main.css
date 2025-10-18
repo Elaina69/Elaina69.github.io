@@ -99,6 +99,15 @@ body {
 }
 
 /* Main content */
+.loading-gif {
+    max-width: 250px !important;
+    min-width: 120px !important;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, 0%);
+}
+
 .portfolio-container {
     min-height: 100vh;
     display: flex;
@@ -197,6 +206,17 @@ body {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
