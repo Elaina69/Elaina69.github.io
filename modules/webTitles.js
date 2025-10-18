@@ -5,6 +5,7 @@ class WebTitles {
         "Meow~",
         "≽^- ˕ -^≼"
     ];
+    
     randomWebTitle() {
         const randomIndex = Math.floor(Math.random() * this.titles.length);
         const title = this.titles[randomIndex];

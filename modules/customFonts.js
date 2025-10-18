@@ -1,10 +1,13 @@
 class CustomFont {
     systemFonts = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
     elainaFont = "'Elaina', " + this.systemFonts;
+    seabornFont = "'IsharLmao', " + this.systemFonts;
 
     applyCustomFont() {
-        // Apply font directly to root so existing CSS font rules are overridden
-        if (Math.random() < 0.05) { // 5% chance
+        if (Math.random() * 100 < 2) {
+            document.body.style.fontFamily = this.seabornFont;
+        }
+        else if (Math.random() * 100 < 11) {
             document.body.style.fontFamily = this.elainaFont;
         }
         else {
