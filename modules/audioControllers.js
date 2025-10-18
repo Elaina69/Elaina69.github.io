@@ -5,6 +5,8 @@ let muted = false
 let loop = false
 let audioIndex = Math.floor(Math.random() * audioList.length)
 let audioVolume = 0.1
+let bubbleAngle = 0;
+let bubbleSpinInterval = null;
 
 window.pausedAudio = paused;
 window.mutedAudio = muted;
@@ -15,10 +17,31 @@ window.audioVolume = audioVolume;
 console.log(audioList)
 
 class AudioController {
+    toggleBubbleSpin = () => {
+        const bubble = document.querySelector("#audio-bubble img");
+        if (!bubble) return;
+        if (window.pausedAudio % 2 !== 0) {
+            if (!bubbleSpinInterval) {
+                bubbleSpinInterval = setInterval(() => {
+                    bubbleAngle = (bubbleAngle + 0.4) % 360;
+                    bubble.style.transform = `rotate(${bubbleAngle}deg)`;
+                }, 16);
+            }
+        } 
+        else {
+            if (bubbleSpinInterval) {
+                clearInterval(bubbleSpinInterval);
+                bubbleSpinInterval = null;
+            }
+            bubble.style.transform = `rotate(${bubbleAngle}deg)`;
+        }
+    };
+
     audioPlayPause = () => {
         const audio = document.getElementById("bg-audio");
         window.pausedAudio % 2 === 0 ? audio.pause() : audio.play();
         this.changeSongName()
+        this.toggleBubbleSpin()
     };
     
     playPauseSetIconAudio = (elem = document.querySelector(".pause-audio-icon")) => {
@@ -220,6 +243,8 @@ class AudioControllers {
                 audioController.setAudioLoopIcon();
             }
         });
+
+        audioController.toggleAvatarSpin()
     }
 
     setAudioSrc() {
@@ -236,6 +261,7 @@ class AudioControllers {
 
         document.addEventListener('click', () => {
             audio.play().catch(() => {});
+            audioController.toggleAvatarSpin();
         }, { once: true });
     }
 }
