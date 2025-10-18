@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Elaina';
+    src: url('../fonts/elaina-herculanum_roman.ttf');
+}
+
+:root {
+    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+}

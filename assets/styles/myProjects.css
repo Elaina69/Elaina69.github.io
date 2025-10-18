@@ -1,7 +1,8 @@
 .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .project-item {
@@ -10,7 +11,7 @@
     border-radius: 12px;
     padding: 24px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .project-item:hover {
@@ -44,6 +45,18 @@
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 0.85rem;
+}
+
+@media (max-width: 1100px) {
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -112,7 +125,7 @@
     color: var(--pink-primary);
     font-size: 2.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     line-height: 1;
     width: 40px;
     height: 40px;
@@ -201,7 +214,7 @@
 .modal-readme a {
     color: var(--pink-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.5s ease;
 }
 
 .modal-readme a:hover {
@@ -232,7 +245,7 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     box-shadow: 0 4px 15px rgba(255, 179, 217, 0.3);
 }
 

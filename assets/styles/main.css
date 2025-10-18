@@ -14,7 +14,6 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-primary);
     overflow-x: hidden;
@@ -47,7 +46,7 @@ body {
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     font-family: inherit;
 }
 
@@ -134,13 +133,12 @@ body {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 600px;
     padding: 60px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 40px;
-    animation: fadeInLeft 0.3s ease-out;
+    animation: fadeInLeft 0.5s ease-out;
 }
 
 @media (max-width: 480px) {
