@@ -103,7 +103,7 @@ body {
     min-height: 100vh;
     display: flex;
     position: relative;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

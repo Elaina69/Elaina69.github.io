@@ -3,14 +3,14 @@ export default [
         name: 'Elaina theme',
         description: 'One of the best theme for Pengu Loader - League of Legends.',
         tags: ['JavaScript', "TypeScript", 'CSS', "Node.js", "ExpressJS", "MySQL"],
-        background: './assets/images/elaina-theme.png',
+        background: './assets/images/elaina-theme.webp',
         link: 'https://github.com/Elaina69/Elaina-V4'
     },
     {
         name: 'Yes Steve Models Repo',
         description: 'YSM models I collected from various sources, free to use.',
         tags: ["YSM", "3D Models", "Community Project"],
-        background: './assets/images/ysm.jpg',
+        background: './assets/images/ysm.webp',
         link: 'https://github.com/Elaina69/Yes-Steve-Model-Repo'
     },
     {

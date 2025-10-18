@@ -14,9 +14,7 @@ class Avatar {
             this.avatarVisible = !this.avatarVisible;
             this.avatar.classList.toggle('show', this.avatarVisible);
 
-            // Chỉ áp dụng trên mobile
             if (window.innerWidth <= 768) {
-                // Lấy chiều cao avatar thực tế
                 const avatarHeight = this.avatarVisible ? 0 : -this.avatarContainer.offsetHeight;
                 [this.title, this.bio, this.skillsSection].forEach(el => {
                     if (el) {
@@ -25,7 +23,6 @@ class Avatar {
                     }
                 });
             } else {
-                // Reset transform trên desktop
                 [this.title, this.bio, this.skillsSection].forEach(el => {
                     if (el) {
                         el.classList.remove('shifted');
