@@ -228,6 +228,12 @@ class AudioControllers {
         const audio = document.getElementById("bg-audio");
 
         audio.volume = window.audioVolume;
+        audio.autoplay = true;
+
+        audio.addEventListener("error", () => audio.load());
+
+        audioController.toggleAudioLoop();
+
         document.addEventListener('click', () => {
             audio.play().catch(() => {});
         }, { once: true });
