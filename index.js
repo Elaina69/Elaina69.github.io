@@ -3,6 +3,7 @@ import { WebTitles } from './modules/webTitles.js'
 import { Navigation } from './modules/navigation.js'
 import { Avatar } from './modules/avatar.js'
 import { Project } from './modules/myProjects.js'
+import { Contacts } from './modules/contactMe.js'
 import { Purr } from './modules/purr.js'
 
 import { setupModalListeners } from './modules/modal.js'
@@ -34,6 +35,10 @@ function main() {
     const project = new Project();
     project.setupProject()
     setupModalListeners()
+
+    // Setup contacts
+    const contacts = new Contacts();
+    contacts.addContact()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
