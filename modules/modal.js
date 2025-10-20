@@ -8,6 +8,20 @@ class Modal {
             const repo = urlParts[1];
 
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
+
+            // Cache key
+            const cacheKey = `readme_${owner}_${repo}`;
+            const cached = localStorage.getItem(cacheKey);
+            // console.log(cached);
+
+            if (cached) {
+                const { content, timestamp } = JSON.parse(cached);
+                // If cache still valid
+                if (Date.now() - timestamp < 30 * 60 * 1000) {
+                    return marked.parse(content);
+                }
+            }
+
             const response = await fetch(apiUrl, {
                 headers: {
                     'Accept': 'application/vnd.github.v3.raw'
@@ -19,8 +33,16 @@ class Modal {
             }
 
             const readmeContent = await response.text();
+
+            // Save cache
+            localStorage.setItem(cacheKey, JSON.stringify({
+                content: readmeContent,
+                timestamp: Date.now()
+            }));
+
             return marked.parse(readmeContent);
-        } catch (error) {
+        } 
+        catch (error) {
             return '<p>Unable to load README. Please visit the GitHub page for more information.</p>';
         }
     }

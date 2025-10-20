@@ -19,7 +19,9 @@ console.log(audioList)
 class AudioController {
     toggleBubbleSpin = () => {
         const bubble = document.querySelector("#audio-bubble img");
+
         if (!bubble) return;
+
         if (window.pausedAudio % 2 !== 0) {
             if (!bubbleSpinInterval) {
                 bubbleSpinInterval = setInterval(() => {
@@ -59,13 +61,13 @@ class AudioController {
     muteSetIconAudio = (elem = document.querySelector(".mute-audio-icon")) => {
         const muteAudioIcon = elem;
         if (!muteAudioIcon) return;
-        muteAudioIcon.setAttribute("src", `assets/images/${window.mutedAudio ? 'mute' : 'audio'}.png`)
+        muteAudioIcon.setAttribute("src", `assets/images/${window.mutedAudio ? 'mute.webp' : 'audio.png'}`)
     };
     
     setAudioLoopIcon = (elem = document.querySelector(".audio-loop-icon")) => {
         const iconElement = elem;
         if (!iconElement) return;
-        iconElement.setAttribute("src", `assets/images/${window.loopAudio ? 'rotating-arrow' : 'unrotating-arrow'}.png`);
+        iconElement.setAttribute("src", `assets/images/${window.loopAudio ? 'rotating-arrow' : 'unrotating-arrow'}.webp`);
     };
     
     toggleAudioLoop = () => {
@@ -167,7 +169,7 @@ class AudioControllers {
                 window.mutedAudio = true;
                 audio.muted = true;
                 audioController.muteSetIconAudio();
-                muteUnmuteIcon.setAttribute("src", `assets/images/mute.png`);
+                muteUnmuteIcon.setAttribute("src", `assets/images/mute.webp`);
             } else {
                 window.mutedAudio = false;
                 audio.muted = false;
@@ -184,7 +186,7 @@ class AudioControllers {
             audioController.audioMute();
             audioController.muteSetIconAudio();
 
-            muteUnmuteIcon.setAttribute("src", `assets/images/${isMuted ? 'mute' : 'audio'}.png`);
+            muteUnmuteIcon.setAttribute("src", `assets/images/${isMuted ? 'mute.webp' : 'audio.png'}`);
             const audio = document.getElementById("bg-audio");
             if (isMuted) {
                 volumeSlider.value = 0;
@@ -244,11 +246,11 @@ class AudioControllers {
             }
         });
 
-        audioController.toggleAvatarSpin()
+        audioController.toggleBubbleSpin()
     }
 
     setAudioSrc() {
-        audioController.updateAudio(audioList[window.audioIndex])
+        audioController.loadSong(audioList[window.audioIndex])
 
         const audio = document.getElementById("bg-audio");
 
@@ -261,7 +263,7 @@ class AudioControllers {
 
         document.addEventListener('click', () => {
             audio.play().catch(() => {});
-            audioController.toggleAvatarSpin();
+            audioController.toggleBubbleSpin();
         }, { once: true });
     }
 }

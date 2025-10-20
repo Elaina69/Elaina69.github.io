@@ -15,19 +15,26 @@ class AudioBubble {
             this.offsetY = e.clientY - this.bubble.offsetTop;
             this.bubble.style.transition = 'none';
         });
+
         document.addEventListener('mousemove', (e) => {
             if (!this.dragging) return;
+
+            // Update bubble position
             let x = e.clientX - this.offsetX;
             let y = e.clientY - this.offsetY;
+
             x = Math.max(0, Math.min(window.innerWidth - this.bubble.offsetWidth, x));
             y = Math.max(0, Math.min(window.innerHeight - this.bubble.offsetHeight, y));
+
             this.bubble.style.left = x + 'px';
             this.bubble.style.top = y + 'px';
             this.bubble.style.right = 'unset';
             this.bubble.style.bottom = 'unset';
             this.bubble.style.position = 'fixed';
+
             this.updatePopupPosition();
         });
+        
         document.addEventListener('mouseup', () => {
             this.dragging = false;
             this.bubble.style.transition = '';
@@ -37,23 +44,31 @@ class AudioBubble {
     setupTouchDrag() {
         this.bubble.addEventListener('touchstart', (e) => {
             this.dragging = true;
+
             const touch = e.touches[0];
             this.offsetX = touch.clientX - this.bubble.offsetLeft;
             this.offsetY = touch.clientY - this.bubble.offsetTop;
+
             this.bubble.style.transition = 'none';
         });
+
         document.addEventListener('touchmove', (e) => {
             if (!this.dragging) return;
+
             const touch = e.touches[0];
+
             let x = touch.clientX - this.bubble.offsetWidth / 2;
             let y = touch.clientY - this.bubble.offsetHeight / 2;
+
             x = Math.max(0, Math.min(window.innerWidth - this.bubble.offsetWidth, x));
             y = Math.max(0, Math.min(window.innerHeight - this.bubble.offsetHeight, y));
+
             this.bubble.style.left = x + 'px';
             this.bubble.style.top = y + 'px';
             this.bubble.style.right = 'unset';
             this.bubble.style.bottom = 'unset';
             this.bubble.style.position = 'fixed';
+
             this.updatePopupPosition();
         });
         document.addEventListener('touchend', () => {
@@ -141,10 +156,10 @@ class AudioBubble {
                             <img class="pause-audio-icon" src="assets/images/play_button.png">
                         </div>
                         <div id="next-audio">
-                            <img class="next-audio-icon" src="assets/images/next-audio.png">
+                            <img class="next-audio-icon" src="assets/images/next-audio.webp">
                         </div>
                         <div id="audio-loop">
-                            <img class="audio-loop-icon" src="assets/images/unrotating-arrow.png">
+                            <img class="audio-loop-icon" src="assets/images/unrotating-arrow.webp">
                         </div>
                     </div>
                 </div>
