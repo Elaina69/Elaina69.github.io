@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+#username {
+    width: 87%;
+    padding: 10px;
+    margin: 10px 0px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#password {
+    width: 75%;
+    padding: 10px;
+    margin: 10px 4% 25px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#showPassword {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#registerAndLoginDiv {
+    display: flex;
+    margin-bottom: 8px;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#register {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#register:hover {
+    background-color: #218838;
+}
+
+#login {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login:hover {
+    background-color: #0056b3;
+}
+
+#forgetPassword {
+    width: 48%;
+    padding: 10px;
+    background-color: #ff2020;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    left: 26%;
+}
+
+#forgetPassword:hover {
+    background-color: #890000;
+}
+
+#message {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}

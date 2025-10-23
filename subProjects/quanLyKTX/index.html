@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="assets/css/dangNhap.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Mã sinh viên(Viết hoa) hoặc Email" title="Vui lòng nhập mã sinh viên hoặc email!" required>
+            <div>
+                <input type="password" id="password" placeholder="Mật khẩu" title="Vui lòng nhập mật khẩu!" required autocomplete="current-password">
+                <input type="checkbox" id="showPassword">
+            </div>
+            <div id="registerAndLoginDiv">
+                <button type="button" id="register">Đăng ký</button>
+                <button type="button" id="login">Đăng nhập</button>
+            </div>
+            <button type="button" id="forgetPassword">Quên mật khẩu</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="./chucNang/dangNhap.js"></script>
+</body>
+</html>

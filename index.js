@@ -1,59 +1,216 @@
-import { CustomFont } from './modules/customFonts.js'
-import { WebTitles } from './modules/webTitles.js'
-import { Navigation } from './modules/navigation.js'
-import { Avatar } from './modules/avatar.js'
-import { Project } from './modules/myProjects.js'
-import { Contacts } from './modules/contactMe.js'
-import { AudioBubble } from './modules/audioBubble.js'
-import { AudioControllers } from './modules/audioControllers.js'
-import { Purr } from './modules/purr.js'
+let eConsole = "%c ElainaV4 "
+let eCss = "color: #ffffff; background-color: #f77fbe"
 
-import { setupModalListeners } from './modules/modal.js'
-
-let defaultBackground = ""
-window.defaultBackground = defaultBackground;
-
-// Main function to initialize the webpage
 function main() {
-    // Apply custom font
-    const customFont = new CustomFont();
-    customFont.applyCustomFont()
-
-    // Set random web title
-    const webTitles = new WebTitles();
-    webTitles.randomWebTitle()
-
-    // Setup navigation buttons
-    const navigation = new Navigation();
-    navigation.navButtonsSetup()
-
-    // Setup avatar
-    const avatar = new Avatar();
-    avatar.toggleAvatar()
-    avatar.resetOnResize()
-    avatar.toggle.click()
-
-    // Setup projects and modal
-    const project = new Project();
-    project.setupProject()
-    setupModalListeners()
-
-    // Setup contacts
-    const contacts = new Contacts();
-    contacts.addContact()
-
-    // Setup audio bubble
-    const audioBubble = new AudioBubble();
-    audioBubble.setupAudioBubble()
-
-    // Setup audio controllers
-    const audioController = new AudioControllers();
-    audioController.setAudioSrc()
-    audioController.setupControllerListeners()
+    let url = new URL(".", import.meta.url).href
+    return url
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    main()
-    const purr = new Purr();
-    purr.purr();
-});
+async function register(id, name) {
+    const response = await fetch(`${main()}api/elainatheme/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            summonerID: `${id}`,
+            summonerName: name
+        })
+    })
+    return await response.json()
+}
+
+async function login(id, name) {
+    const response = await fetch(`${main()}api/elainatheme/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            summonerID: `${id}`,
+            summonerName: name
+        })
+    })
+    return await response.json()
+}
+
+async function readBackup(token, id) {
+    const response = await fetch(`${main()}api/elainatheme/data`, {
+        method: 'POST',
+        headers: {
+            "Authorization": token,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            summonerID: `${id}`,
+            type: "GET",
+        })
+    })
+    let result = await response.json()
+    return result
+}
+
+async function writeBackup(token, id, data) {
+    if (ElainaData.get("backup-datastore")) {
+        let backupDataToCloud = new Promise(async (resolve, reject) => {
+            const response = await fetch(`${main()}api/elainatheme/data`, {
+                method: 'POST',
+                headers: {
+                    "Authorization": token,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    summonerID: `${id}`,
+                    type: "BACKUP",
+                    data: data
+                })
+            })
+            let result = await response.json()
+    
+            if (result.success) {
+                console.log(eConsole + '%c Backup successfully.', eCss, "")
+                resolve()
+            }
+            else {
+                console.log(eConsole + '%c Backup failed.', eCss, "")
+                reject()
+            }
+        })
+          
+        Toast.promise(backupDataToCloud, {
+            loading: 'Backing up settings to cloud...',
+            success: 'Backup successfully!!',
+            error: 'Backup failed.'
+        })
+    }
+    else Toast.error("You have to turn on cloud backup first!!")
+}
+
+async function deleteBackup(token, id) {
+    let deleteData = new Promise(async (resolve, reject) => {
+        const response = await fetch(`${main()}api/elainatheme/data`, {
+            method: 'POST',
+            headers: {
+                "Authorization": token,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                summonerID: `${id}`,
+                type: "DELETE"
+            })
+        })
+        let result = await response.json()
+
+        if (result.success) {
+            console.log(eConsole + '%c Delete backup successfully.', eCss, "")
+            resolve()
+        }
+        else reject()
+    })
+      
+    Toast.promise(deleteData, {
+        loading: 'Deleting file...',
+        success: 'Delete backup successfully!!',
+        error: ''
+    })
+}
+
+async function totalUsers() {
+    return (await(await fetch(`${main()}api/elainatheme/totalUsers`)).json()).total
+}
+
+export async function getLatestRelease() {
+    let response = await (await fetch(`${main()}api/elainatheme/latest-release`)).json()
+    return response.tag_name
+}
+
+async function getImage(id, imageType) {
+    const response = await fetch(`${main()}api/elainatheme/image/getImage`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            summonerID: `${id}`,
+            type: imageType
+        })
+    })
+    if (!response.ok) {
+        return null
+    }
+
+    const blob = await response.blob();
+    return URL.createObjectURL(blob);
+}
+
+async function uploadImage(token, id, imageType, imageFile) {
+    const formData = new FormData();
+    formData.append("summonerID", id);
+    formData.append("type", imageType);
+    formData.append("image", imageFile);
+
+    const response = await fetch(`${main()}api/elainatheme/image/uploadImage`, {
+        method: 'POST',
+        headers: {
+            "Authorization": token
+        },
+        body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        console.log(eConsole + '%c Image uploaded successfully', eCss, "");
+    } else {
+        console.log(eConsole + '%c Image upload failed.', eCss, "");
+    }
+}
+
+async function deleteImage(token, id, imageType) {
+    const response = await fetch(`${main()}api/elainatheme/image/deleteImage`, {
+        method: 'POST',
+        headers: {
+            "Authorization": token,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            summonerID: `${id}`,
+            type: imageType
+        })
+    })
+    let result = await response.json()
+
+    if (result.success) {
+        console.log(eConsole + '%c Delete backup successfully.', eCss, "")
+    }
+}
+async function getFriendsImage(friends) {
+    const response = await fetch(`${main()}api/elainatheme/image/getFriendsImage`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            friendsList: friends
+        })
+    })
+
+    let result = await response.json()
+    return result
+}
+
+const elainathemeApi = {
+    register,
+    login,
+    readBackup,
+    writeBackup,
+    deleteBackup,
+    totalUsers,
+    getLatestRelease,
+    getImage,
+    uploadImage,
+    deleteImage,
+    getFriendsImage
+}
+
+window.elainathemeApi = elainathemeApi

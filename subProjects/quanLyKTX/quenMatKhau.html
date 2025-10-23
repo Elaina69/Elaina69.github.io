@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm">
+            <input type="text" id="email" placeholder="Email của tài khoản" title="Vui lòng nhập email của tài khoản!" required>
+            <input type="text" id="newPassword" placeholder="Mật khẩu mới" title="Vui lòng nhập mật khẩu mới!" required>
+            <div id="otpDiv">
+                <input type="text" id="otp" placeholder="Mã OTP" title="Vui lòng nhập otp!" required>
+                <button type="button" id="sendOtp">Gửi mã OTP</button>
+                <p id="countdown"></p>
+            </div>
+            <div id="registerAndLoginDiv">
+                <button type="button" id="changePassword">Đổi mật khẩu</button>
+            </div>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="./chucNang/quenMatKhau.js"></script>
+</body>
+</html>

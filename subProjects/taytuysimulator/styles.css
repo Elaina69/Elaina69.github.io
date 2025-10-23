@@ -1,0 +1,160 @@
+.info_table_main {
+    background-color: #344758;
+    height: 515px;
+    position: relative;
+    width: 70vw;
+    object-fit: contain;
+    border: 4px solid #cdaf0fe6;
+    border-radius: 10px;
+}
+
+.info_table {
+    border: 0px solid;
+    border-radius: 7px;
+    background-color: #141B20;
+    width: auto;
+    max-width: 550px;
+    height: 200px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    top: 13px;
+}
+
+.thuocTinh_text {
+    text-align: center; 
+    color: white;
+}
+
+.thuocTinh_table {
+    border: 0px solid; 
+    border-radius: 5px; 
+    background-color: #141B20;
+}
+
+.thuocTinh,.thuocTinhMoi {
+    display: flex; padding: 5px;
+}
+
+.khoaThuocTinh {
+    width: 29px; 
+    height: 24px; 
+    border: 3px solid #B9D5D3; 
+    border-radius: 100%;
+}
+
+.thuocTinh_number {
+    width: 200px;
+    height: 27px; 
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0 0 0));
+    padding: 3px 0px 0px 0px;
+}
+
+.thuocTinh_gold {
+    width: 42px;
+    height: 30px;
+    margin: 0px 3px 0px 5px;
+}
+
+.thuocTinh_exp {
+    width: 34px;
+    height: 32px;
+    margin: 0px 11px 0px 7px;
+}
+
+.thuocTinh_hungry {
+    width: 30px;
+    height: 30px;
+    margin: 0px 12px 0px 8px;
+}
+
+.thuocTinh_luck {
+    width: 30px;
+    height: 30px;
+    margin: 0px 11px 0px 9px;
+}
+
+.thuocTinh_damage {
+    width: 30px;
+    height: 30px;
+    margin: 0px 11px 0px 9px;
+}
+
+.textNumber {
+    font-size: 21px;
+    display: contents;
+    color: white;
+}
+
+.thuocTinh_starsNumber {
+    font-size: 21px;
+    display: contents;
+    color: white;
+}
+
+.thuocTinh_stars {
+    width: 30px;
+    height: 30px;
+    margin-left: 2px
+}
+
+.nangSao {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+}
+
+.starsNumber_div {
+    position: relative;
+    top: 4px;
+    margin-left: 3px;
+}
+
+.cost_num {
+    color: white;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.cost_num_used {
+    color: white;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.dragon_stars_table {
+    display: flex;
+    position: relative;
+    margin-left: 11px;
+}
+
+.giamSao > img , .tangSao > img {
+    width: 30px;
+}
+
+.dragon_stars {
+    margin: 0px;
+    width: 43px;
+    height: 20px;
+    border: 0px solid;
+    border-radius: 2px;
+    margin-top: 5px;
+    background-color: #173225;
+    position: relative;
+}
+
+.dragon_stars > p {
+    text-align: center;
+    margin: 0px;
+    color: white;
+    margin-top: 2px;
+}
+
+.bags {
+    width: 25vw;
+    height: 515px;
+    border: 4px solid #cdaf0fe6;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #0000008c;
+}

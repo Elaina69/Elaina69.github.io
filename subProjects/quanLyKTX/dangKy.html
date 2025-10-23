@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng ký</h2>
+        <form id="registerForm">
+            <input type="text" id="email" placeholder="Email" required>
+            <div id="otpDiv">
+                <input type="text" id="otp" placeholder="Mã OTP" title="Vui lòng nhập otp!" required>
+                <button type="button" id="sendOtp">Gửi mã OTP</button>
+                <p id="countdown"></p>
+            </div>
+            <input type="text" id="password" placeholder="Mật khẩu" required>
+            <input type="text" id="rePassword" placeholder="Nhập lại mật khẩu" required>
+            <input type="text" id="phone" placeholder="Số điện thoại" required>
+            <input type="text" id="hoTen" placeholder="Họ và tên" required>
+            <div style="display: flex;">
+                <p id="chonGioiTinh">Giới tính:</p>
+                <select id="gioiTinh" required>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+            <p id="ngaySinh">Ngày sinh:</p>
+            <div class="date-picker">
+                <label for="day">Ngày:</label>
+                <select id="day" required>
+                    <option value="" disabled selected>Ngày</option>
+                    <!-- Generate days dynamically -->
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            if (i < 10) {
+                                document.write(`<option value="${'0'+i}">${'0'+i}</option>`);
+                            }
+                            else document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            
+                <label for="month">Tháng:</label>
+                <select id="month" required>
+                    <option value="" disabled selected>Tháng</option>
+                    <!-- Generate months dynamically -->
+                    <script>
+                        for (let i = 1; i <= 12; i++) {
+                            if (i < 10) {
+                                document.write(`<option value="${'0'+i}">${'0'+i}</option>`);
+                            }
+                            else document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            
+                <label for="year">Năm:</label>
+                <select id="year" required>
+                    <option value="" disabled selected>Năm</option>
+                    <!-- Generate years dynamically -->
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= 1970; i--) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+            <input type="text" id="quocTich" placeholder="Quốc tịch" required>
+            <input type="text" id="maSV" placeholder="Mã sinh viên" required>
+            <input type="text" id="lop" placeholder="Tên lớp" required>
+            <input type="text" id="khoa" placeholder="Tên khoa" required>
+
+            <button type="button" id="register">Đăng ký</button>
+            <button type="button" id="login">Quay lại đăng nhập</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="./chucNang/dangKy.js"></script>
+</body>
+</html>

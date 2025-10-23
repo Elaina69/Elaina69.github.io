@@ -1,0 +1,675 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f5f7fa;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.logout-container {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+#logoutButton {
+    background: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background-color: #c82333;
+}
+
+/* Toggle Sidebar Button */
+.toggle-sidebar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+}
+
+.toggle-sidebar:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar Hidden State */
+.sidebar.hidden {
+    display: none;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 290px;
+    background: #1e3a8a;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar-menu {
+    max-height: calc(100vh - 90px); /* Chiều cao tối đa trừ đi chiều cao logo */
+    overflow-y: auto; /* Thêm cuộn dọc */
+    overflow-x: hidden; /* Ẩn cuộn ngang */
+    scrollbar-width: thin; /* Làm thanh cuộn mỏng hơn (Firefox) */
+    scrollbar-color: #1e3a8a #1e3a8a; /* Màu thanh cuộn và nền thanh cuộn (Firefox) */
+    padding-right: 10px; /* Dịch nội dung sang trái để tránh đè lên thanh cuộn */
+}
+
+/* Tùy chỉnh thanh cuộn (Chrome, Edge, Safari) */
+.sidebar-menu::-webkit-scrollbar {
+    width: 10px; /* Độ rộng của thanh cuộn */
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background-color: #2563eb; /* Màu của thanh cuộn */
+    border-radius: 5px; /* Bo góc thanh cuộn */
+    border: 2px solid #1e3a8a; /* Tạo khoảng cách giữa thanh cuộn và nội dung */
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #1e40af; /* Màu khi hover */
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+    background-color: #1e3a8a; /* Màu nền của thanh cuộn */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+.sidebar ul li:hover, .sidebar ul .active {
+    background: #2563eb;
+    border-radius: 5px;
+}
+
+.sidebar.hidden + .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 290px;
+    transition: margin-left 0.3s ease;
+    padding: 20px;
+    width: calc(100% - 290px);
+    margin-top: 40px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e3a8a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+header input {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Profile Section */
+
+.profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    position: relative;
+}
+
+.profile-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.upload-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #2563eb;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-info {
+    margin-left: 20px;
+}
+
+.profile-info p {
+    margin: 8px 0;
+}
+
+#updateProfileButton {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 0%;
+    margin-left: 3%;
+}
+
+#updateProfileButton:hover {
+    background-color: #218838;
+}
+
+#saveProfileButton {
+    background: #28a745;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveProfileButton:hover {
+    background-color: #218838;
+}
+
+#cancelProfileButton {
+    background: #dc3545;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#cancelProfileButton:hover {
+    background-color: #c82333;
+}
+
+/* Notification Section */
+#createNotificationButton {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-right: 1%;
+}
+
+#createNotificationButton:hover {
+    background-color: #0056b3;
+}
+
+#notificationList {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#notificationList li {
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+#notificationForm,
+#addDisciplinaryForm {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notification-form-group,
+.add-disciplinary-form-group {
+    margin-left: 20px;
+}
+
+.notification-form-group div,
+.add-disciplinary-form-group div {
+    margin: 8px 0px;
+}
+
+lable[for="notificationContent"] {
+    display: flex;
+}
+
+#notificationContent,
+.add-disciplinary-form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100px;
+    max-height: 300px;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.notification-actions {
+    display: flex;
+}
+
+.editNotificationButton {
+    background: #28a745;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.editNotificationButton:hover {
+    background-color: #218838;
+}
+
+.deleteNotificationButton {
+    display: flex;
+    background: #dc3545;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-left: 2%;
+}
+
+.deleteNotificationButton:hover {
+    background-color: #c82333;
+}
+
+#submitNotificationButton {
+    background: #28a745;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitNotificationButton:hover {
+    background-color: #218838;
+}
+
+#cancelNotificationButton {
+    background: #dc3545;
+    color: white;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#cancelNotificationButton:hover {
+    background-color: #c82333;
+}
+
+#publicNotificationButton,
+.thuePhong_tuChoi,
+#roomBillsButton {
+    background: #5f5f5bbf;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#publicNotificationButton:hover,
+.thuePhong_tuChoi:hover,
+#roomBillsButton:hover {  
+    background-color: #5f5f5b;
+}
+
+#personalNotificationButton,
+#studentBillsButton {
+    background: #006446cf;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+#personalNotificationButton:hover,
+#studentBillsButton:hover {
+    background-color: #006446;
+}
+
+/* Permission Section */
+
+
+.permission-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.permission-form-group {
+    margin-left: 20px;
+}
+
+.permission-form-group div {
+    margin: 8px 0px;
+}
+
+#updateRoleButton {
+    background: #28a745;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Account Management Section */
+.profile-section h2,
+.notification-section h2,
+.notification-form h2,
+.notification-buttons,
+.permission-section h2,
+.room-form h2, 
+.room-edit-form h2,
+.room-registration-form h2,
+.account-management-section h2, 
+.room-management-section h2,
+.room-registration-management-section h2 ,
+.payment-section h2,
+.student-management-section h2,
+.disciplinary-section h2,
+.disciplinary-details h2,
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.accountList, 
+.roomList,
+.registrationList,
+.paymentList,
+.studentList,
+.disciplinaryList,
+.billList {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.accountList th, .accountList td, 
+.roomList th, .roomList td,
+.registrationList th, .registrationList td,
+.paymentList th, .paymentList td,
+.studentList th, .studentList td,
+.disciplinaryList th, .disciplinaryList td,
+.billList th, .billList td {
+    padding: 1% 1% 1% 1%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 90%;
+}
+
+.accountList th, 
+.roomList th,
+.registrationList th,
+.paymentList th,
+.studentList th,
+.disciplinaryList th,
+.billList th {
+    background-color: #2d4770;
+    color: white;
+}
+
+.accountList tr:hover, 
+.roomList tr:hover,
+.registrationList tr:hover,
+.paymentList tr:hover,
+.studentList tr:hover,
+.disciplinaryList tr:hover,
+.billList tr:hover {
+    background-color: #f1f1f1;
+}
+
+#viewAccountDetailsButton {
+    background: #007bff;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#viewAccountDetailsButton:hover {
+    background-color: #0056b3;
+}
+
+#addRoomButton {
+    background: #007bff;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 14px;
+}
+
+#addRoomButton:hover {
+    background-color: #0056b3;
+}
+
+.roomList td > button:nth-child(1) {
+    background: #28a745;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 7px;
+}
+
+.roomList td > button:nth-child(1):hover {
+    background-color: #218838;
+}
+
+.roomList td > button:nth-child(2) {
+    background: #dc3545;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.roomList td > button:nth-child(2):hover {
+    background-color: #c82333;
+}
+
+#addRoomForm, 
+#editRoomForm,
+#registerRoomForm,
+.bill-info,
+.disciplinary-info {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.room-form-group, 
+.register-room-form-group,
+.bill-info-item,
+.disciplinary-info-item {
+    margin-left: 20px;
+}
+
+.room-form-group div,
+.register-room-form-group div,
+.bill-info-item div,
+.disciplinary-info-item p {
+    margin: 8px 0px;
+}
+
+#submitAddRoomButton, 
+.room-form-group .form-buttons > button[type="submit"],
+.thuePhong_duyet,
+.paymentList td > button:nth-child(2),
+.disciplinary-section > button:nth-child(2),
+#addDisciplinaryForm > div > button:nth-child(2),
+.disciplinaryList td > button:nth-child(2),
+.confirmPayment {
+    background: #28a745;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#submitAddRoomButton:hover, 
+.room-form-group .form-buttons > button[type="submit"]:hover,
+.thuePhong_duyet:hover,
+.paymentList td > button:nth-child(2):hover,
+.disciplinary-section > button:nth-child(2):hover,
+#addDisciplinaryForm > div > button:nth-child(2):hover,
+.disciplinaryList td > button:nth-child(2):hover,
+.confirmPayment:hover {  
+    background-color: #218838;
+}
+
+#cancelAddRoomButton, 
+#cancelEditRoomButton,
+.thuePhong_xoa,
+.bill-info-item > button,
+.disciplinary-section > button:nth-child(4),
+#addDisciplinaryForm > div > button:nth-child(3),
+.disciplinaryList td > button:nth-child(3),
+.disciplinary-info-item > button,
+.deleteBill,
+#deleteAccountButton {
+    background: #dc3545;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#cancelAddRoomButton:hover, 
+#cancelEditRoomButton:hover,
+.thuePhong_xoa:hover,
+.bill-info-item > button:hover,
+.disciplinary-section > button:nth-child(4):hover,
+#addDisciplinaryForm > div > button:nth-child(3):hover,
+.disciplinaryList td > button:nth-child(3):hover
+.disciplinary-info-item > button:hover,
+.deleteBill:hover,
+#deleteAccountButton:hover {
+    background-color: #c82333;
+}
+
+#registerRoomForm button[type="submit"],
+.paymentList td > button:nth-child(1),
+#roomListDiv #applyFiltersButton,
+.studentList td > button:nth-child(1),
+.disciplinaryList td > button:nth-child(1),
+.viewBillDetails {
+    background: #007bff;
+    color: white;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#registerRoomForm button[type="submit"]:hover,
+.paymentList td > button:nth-child(1):hover,
+#roomListDiv #applyFiltersButton:hover,
+.studentList td > button:nth-child(1):hover,
+.disciplinaryList td > button:nth-child(1):hover,
+.viewBillDetails:hover {
+    background-color: #0056b3;
+}
+
+#roomListDiv .filter-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}

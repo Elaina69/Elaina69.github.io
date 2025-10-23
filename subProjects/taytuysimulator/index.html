@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giả lập tẩy tủy rồng Đảo Rồng Mobile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" type="module"></script>
+</head>
+<body>
+    <div style="display: flex;">
+        <div class="info_table_main">
+            <div class="info_table">
+                <div style="margin-left: 10px;">
+                    <div class="cost_used">
+                        <p style="color: white;margin-bottom: 5px;">Tổng chi phí :</p>
+                    </div>
+                    <div class="kimCuong_cost_used" style="display: flex;margin-left: 10px;">
+                        <img src="./assets/KimCuong.png" style="width: 30px;">
+                        <div style="position: relative; width: 100px;height: 24px;border: 0px solid;border-radius: 2px;background-color: #173225;margin-top: 3px;margin-left: 1px; text-align: center;">
+                            <p class="cost_num_used">0</p>
+                        </div>
+                    </div>
+                    <div class="buiRong_cost_used" style="display: flex;margin-left: 13px;">
+                        <img src="./assets/BuiRong.png" style="width: 25px;">
+                        <div style="position: relative;width: 100px;height: 24px;border: 0px solid;border-radius: 2px;background-color: #173225;margin-top: 3px;margin-left: 3px;text-align: center;">
+                            <p class="cost_num_used">0</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cost_used">
+                        <p style="color: white;margin-bottom: 5px;">Sao rồng :</p>
+                    </div>
+                    <div class="dragon_stars_table">
+                        <div class="giamSao">
+                            <img src="./assets/prev_button.png">
+                        </div>
+                        <div class="dragon_stars">
+                            <p>9</p>
+                        </div>
+                        <div class="tangSao">
+                            <img src="./assets/next_button.png">
+                        </div>
+                    </div>
+                </div>
+                <div style="border-radius: 10px;border: 3px solid #9f1919a8;width: 110px;height: 110px;margin-top: 40px;margin-left: 60px;"></div>
+                <div style="margin-top: 30px;margin-left: 16px;">
+                    <div class="cost">
+                        <p style="color: white;margin-bottom: 5px;">Giá :</p>
+                    </div>
+                    <div class="kimCuong_cost" style="display: flex;margin-left: 10px;">
+                        <img src="./assets/KimCuong.png" style="width: 30px;">
+                        <div style="position: relative; width: 100px;height: 24px;border: 0px solid;border-radius: 2px;background-color: #173225;margin-top: 3px;margin-left: 1px; text-align: center;">
+                            <p class="cost_num">0</p>
+                        </div>
+                    </div>
+                    <div class="buiRong_cost" style="display: flex;margin-left: 13px;">
+                        <img src="./assets/BuiRong.png" style="width: 25px;">
+                        <div style="position: relative;width: 100px;height: 24px;border: 0px solid;border-radius: 2px;background-color: #173225;margin-top: 3px;margin-left: 3px;text-align: center;">
+                            <p class="cost_num">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex;position: relative;margin: auto;left: -32px;width: 0px;">
+                <input type="button" class="tayTuy" value="Tẩy tủy" style="margin-top: 3px;position: relative;">
+            </div>
+            <div style="display: flex; margin: auto;position: relative;width: 675px;"> 
+                <div style="width: 300px; margin-left: 25px;">
+                    <p class="thuocTinh_text">Thuộc tính gốc</p>
+                    <div class="thuocTinh_table">
+                        <div class="thuocTinh" tt="gold">
+                            <div class="khoaThuocTinh" >
+                                <input type="checkbox">
+                            </div>
+                            <img class="thuocTinh_gold" src="./assets/Vang.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                        </div>
+                        <div class="thuocTinh"  tt="exp">
+                            <div class="khoaThuocTinh">
+                                <input type="checkbox">
+                            </div>
+                            <img class="thuocTinh_exp" src="./assets/Exp.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                        </div>
+                        <div class="thuocTinh"  tt="hungry">
+                            <div class="khoaThuocTinh">
+                                <input type="checkbox">
+                            </div>
+                            <img class="thuocTinh_hungry" src="./assets/hungry.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                        </div>
+                        <div class="thuocTinh"  tt="luck">
+                            <div class="khoaThuocTinh">
+                                <input type="checkbox">
+                            </div>
+                            <img class="thuocTinh_luck" src="./assets/luck.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                        </div>
+                        <div class="thuocTinh"  tt="damage">
+                            <div class="khoaThuocTinh">
+                                <input type="checkbox">
+                            </div>
+                            <img class="thuocTinh_damage" src="./assets/damage.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                        </div>
+                    </div>
+                </div>
+        
+                <div style="width: 300px; margin-left: 25px;">
+                    <p class="thuocTinh_text">Thuộc tính mới</p>
+                    <div class="thuocTinh_table">
+                        <div class="thuocTinhMoi" tt="gold">
+                            <img class="thuocTinh_gold" src="./assets/Vang.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                            <img class="nangSao" src="./assets/chucPhuc.png" visible="false">
+                        </div>
+                        <div class="thuocTinhMoi"  tt="exp">
+                            <img class="thuocTinh_exp" src="./assets/Exp.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                            <img class="nangSao" src="./assets/chucPhuc.png" visible="false">
+                        </div>
+                        <div class="thuocTinhMoi"  tt="hungry">
+                            <img class="thuocTinh_hungry" src="./assets/hungry.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                            <img class="nangSao" src="./assets/chucPhuc.png" visible="false">
+                        </div>
+                        <div class="thuocTinhMoi"  tt="luck">
+                            <img class="thuocTinh_luck" src="./assets/luck.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                            <img class="nangSao" src="./assets/chucPhuc.png" visible="false">
+                        </div>
+                        <div class="thuocTinhMoi"  tt="damage">
+                            <img class="thuocTinh_damage" src="./assets/damage.png">
+                            <div class="thuocTinh_number">
+                                <p class="textNumber"></p>
+                            </div>
+                            <div class="starsNumber_div">
+                                <p class="thuocTinh_starsNumber" style="color: white;">0</p>
+                            </div>
+                            <img class="thuocTinh_stars" src="./assets/NgoiSao.png">
+                            <img class="nangSao" src="./assets/chucPhuc.png" visible="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex;position: relative;width: 0px;margin: auto; left: 86px;">
+                <input type="button" class="nhanTuy" value="Nhận thuộc tính mới" style="position: absolute;margin-top: 7px;">
+            </div>
+        </div>
+        <div class="bags"></div>
+    </div>
+</body>
+</html>

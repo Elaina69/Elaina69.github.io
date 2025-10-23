@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+#email, #newPassword {
+    width: 87%;
+    padding: 10px;
+    margin: 10px 0px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#otpDiv {
+    display: flex;
+    margin-top: 9px;
+    gap: 10px;
+    justify-content: space-between;
+    margin-left: 3%;
+}
+
+#otp {
+    width: 33%;
+    padding: 10px;
+    margin: 0px 0px 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#sendOtp {
+    width: 30%;
+    height: 35%;
+    background-color: #ff2020;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#sendOtp:hover {
+    background-color: #890000;
+}
+
+#changePassword {
+    width: 75%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#changePassword:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}
+
+#countdown {
+    width: 14%;
+    margin-top: 4%;
+}
