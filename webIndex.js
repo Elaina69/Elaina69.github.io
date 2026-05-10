@@ -13,7 +13,7 @@ let defaultBackground = ""
 window.defaultBackground = defaultBackground;
 
 // Main function to initialize the webpage
-function main() {
+async function main() {
     // Apply custom font
     const customFont = new CustomFont();
     customFont.applyCustomFont()
@@ -47,7 +47,7 @@ function main() {
 
     // Setup audio controllers
     const audioController = new AudioControllers();
-    audioController.setAudioSrc()
+    await audioController.setAudioSrc()
     audioController.setupControllerListeners()
 }
 

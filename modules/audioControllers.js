@@ -1,9 +1,14 @@
-import audioList from "../configs/audioList.js"
+const escapeHtml = (text) => {
+    const div = document.createElement('div')
+    div.textContent = text
+    return div.innerHTML
+}
 
+let audioList = [];
 let paused = 1
 let muted = false
 let loop = false
-let audioIndex = Math.floor(Math.random() * audioList.length)
+let audioIndex = 0
 let audioVolume = 0.1
 let bubbleAngle = 0;
 let bubbleSpinInterval = null;
@@ -13,6 +18,27 @@ window.mutedAudio = muted;
 window.loopAudio = loop;
 window.audioIndex = audioIndex;
 window.audioVolume = audioVolume;
+
+/**
+ * Fetch danh sách audio từ API
+ * @returns {Promise<string[]>}
+ */
+async function fetchAudioList() {
+    try {
+        const res = await fetch('/api/audio-list');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+            audioList = list;
+            window.audioIndex = Math.floor(Math.random() * audioList.length);
+        } else {
+            console.warn('Danh sách audio trống');
+        }
+    } catch (err) {
+        console.error('Không thể tải danh sách audio:', err);
+    }
+    return audioList;
+}
 
 console.log(audioList)
 
@@ -91,7 +117,7 @@ class AudioController {
     
     loadSong = (song) => {
         const audio = document.getElementById("bg-audio");
-        audio.src = `assets/audio/${song}`;
+        audio.src = `assets/audio/portfolio/${song}`;
     };
 
     updateAudio = async (song) => {
@@ -123,9 +149,9 @@ class AudioController {
         let songNameText = document.querySelector(".audio-name-bar > p")
         if (songNameText) {
             if (window.pausedAudio % 2 === 0) {
-                songNameText.innerHTML = `Paused: <br/>${currentSong}`
+                songNameText.innerHTML = `Paused: <br/>${escapeHtml(currentSong)}`
             }
-            else songNameText.innerHTML = `Now playing: <br/>${currentSong}`
+            else songNameText.innerHTML = `Now playing: <br/>${escapeHtml(currentSong)}`
         }
     }
 }
@@ -153,8 +179,8 @@ class AudioControllers {
 
         // Set current audio name to progress bar
         window.pausedAudio % 2 === 0 
-            ? audioName.innerHTML = `Paused: <br/>${audioList[window.audioIndex]}`
-            : audioName.innerHTML = `Now playing: <br/>${audioList[window.audioIndex]}`
+            ? audioName.innerHTML = `Paused: <br/>${escapeHtml(audioList[window.audioIndex])}`
+            : audioName.innerHTML = `Now playing: <br/>${escapeHtml(audioList[window.audioIndex])}`
 
         // Handle volume slider input
         volumeSlider.value = window.audioVolume * 100;
@@ -249,7 +275,15 @@ class AudioControllers {
         audioController.toggleBubbleSpin()
     }
 
-    setAudioSrc() {
+    async setAudioSrc() {
+        // Fetch danh sách audio từ API trước khi play
+        await fetchAudioList();
+
+        if (audioList.length === 0) {
+            console.warn('Không có bài nhạc nào để phát');
+            return;
+        }
+
         audioController.loadSong(audioList[window.audioIndex])
 
         const audio = document.getElementById("bg-audio");

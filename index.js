@@ -124,23 +124,50 @@ export async function getLatestRelease() {
     return response.tag_name
 }
 
-async function getImage(id, imageType) {
-    const response = await fetch(`${main()}api/elainatheme/image/getImage`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            summonerID: `${id}`,
-            type: imageType
+async function getImageHash(id, imageType) {
+    try {
+        const response = await fetch(`${main()}api/elainatheme/image/getImageHash`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                summonerID: `${id}`,
+                type: imageType
+            })
         })
-    })
-    if (!response.ok) {
+        if (!response.ok) return null
+
+        const result = await response.json()
+        return result.hash || null
+    } catch (err) {
+        console.log(eConsole + `%c getImageHash failed: ${err.message}`, eCss, "")
         return null
     }
+}
 
-    const blob = await response.blob();
-    return URL.createObjectURL(blob);
+async function getImage(id, imageType) {
+    try {
+        const response = await fetch(`${main()}api/elainatheme/image/getImage`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                summonerID: `${id}`,
+                type: imageType
+            })
+        })
+        if (!response.ok) {
+            return null
+        }
+
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (err) {
+        console.log(eConsole + `%c getImage failed: ${err.message}`, eCss, "")
+        return null
+    }
 }
 
 async function uploadImage(token, id, imageType, imageFile) {
@@ -195,8 +222,13 @@ async function getFriendsImage(friends) {
         })
     })
 
+    if (!response.ok) {
+        console.log(eConsole + `%c getFriendsImage failed: ${response.status}`, eCss, "")
+        return []
+    }
+
     let result = await response.json()
-    return result
+    return Array.isArray(result) ? result : []
 }
 
 const elainathemeApi = {
@@ -208,6 +240,7 @@ const elainathemeApi = {
     totalUsers,
     getLatestRelease,
     getImage,
+    getImageHash,
     uploadImage,
     deleteImage,
     getFriendsImage

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gacha Lì Xì Tết</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fireworks-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1> GACHA LÌ XÌ TẾT </h1>
+            <p class="subtitle">Chúc mừng năm mới - Phát tài phát lộc</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Wheel Section -->
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <canvas id="wheelCanvas" width="400" height="400"></canvas>
+                    <div class="wheel-pointer">▼</div>
+                </div>
+                <button id="spinBtn" class="spin-button">🧧 QUAY NGAY 🧧</button>
+                <div class="result-display" id="resultDisplay"></div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <h2>Quản Lý Phần Quà</h2>
+                
+                <!-- Settings -->
+                <div class="settings">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="keepWonPrizes" checked>
+                        <span>Giữ lại phần quà đã trúng trên bánh xe</span>
+                    </label>
+                    <button id="resetBtn" class="reset-btn">🔄 Khôi phục về mặc định</button>
+                </div>
+
+                <!-- Add Prize Form -->
+                <div class="add-prize-form">
+                    <h3>Thêm Phần Quà Mới</h3>
+                    <input type="text" id="prizeInput" placeholder="Nhập tên phần quà..." maxlength="30">
+                    <input type="color" id="colorInput" value="#ff0000">
+                    <button id="addPrizeBtn" class="add-btn">➕ Thêm</button>
+                </div>
+
+                <!-- Prize List -->
+                <div class="prize-list">
+                    <h3>Danh Sách Phần Quà</h3>
+                    <div id="prizeListContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎋 Xuân đến - Vạn sự như ý 🎋</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
